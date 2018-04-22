@@ -8,5 +8,9 @@ let todoController = {
         res.render('index', {"todos": todos});
       });
   },
+  post: function(req,res){
+    console.log(req.body); // 印出 request 的 body 
+    res.send(req.body.name); // 如果 body 有 name ，把值回傳
+  }
 };
 module.exports = todoController;
