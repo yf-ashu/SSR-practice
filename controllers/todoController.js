@@ -11,14 +11,15 @@ let todoController = {
       });
   },
   post: function (req, res) {
-    let dateLocal=new Date().toLocaleString("ko-KR");
+    let dateLocal = new Date().toLocaleString("ko-KR");
     const list = {
       title: req.body.title,
-      date:dateLocal
+      date: dateLocal
     };
-     Todo.create(list)
+    Todo.create(list)
       .then(todos => {
-        alert(res.status(201).send(dateLocal)); // 如果 body 有 name ，把值回傳
+        res.redirect('/');
+        // res.status(201).send(dateLocal); // 如果 body 有 name ，把值回傳
       }).catch(error => res.status(400).send(error));
 
   }
