@@ -5,3 +5,7 @@
         <li><a href='/todo/<%= todo.id %>'><%= todo.id %>: <%= todo.title %></a></li>
     <% }); %>
 </ul>
+<form name="form" method="POST" action="/">
+        <input name="name" placeholder="姓名"/>
+        <button class="send">送出意見</button>
+</form>
