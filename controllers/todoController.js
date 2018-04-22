@@ -15,9 +15,9 @@ let todoController = {
       title: req.body.title,
       date:new Date()
     };
-    return Todo.create(list)
+     Todo.create(list)
       .then(todos => {
-        res.status(201).send(todos); // 如果 body 有 name ，把值回傳
+        res.status(201).send("OK!!"); // 如果 body 有 name ，把值回傳
       }).catch(error => res.status(400).send(error));
 
   }
