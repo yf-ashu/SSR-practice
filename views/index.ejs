@@ -18,8 +18,8 @@
                             <li class="list--item">
                                    <p><%= todo.id %></p> 
                                    <p><%= todo.title %></p>
-                                <a href='/<%= todo.id %>'>
-                                </a>
+                                <a href='/<%= todo.id %>' class="btn-delete" data-id="<%= todo.id %>">刪除</a>
+
                             </li>
                             <% }); %>
                     </ul>

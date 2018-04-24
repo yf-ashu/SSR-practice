@@ -7,4 +7,5 @@ module.exports = function (app) {
   app.get('/', todoController.index);
   app.get('/api/tasks', taskController.indexApi);
   app.post('/',todoController.post);
+  app.get('/:id', todoController.delete);
 };
