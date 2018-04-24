@@ -15,12 +15,12 @@ let todoController = {
       title: req.body.title,
       date: new Date()
     };
-    Todo.create(list)
-      .then(todos => {
-        res.redirect('/');
-        // res.status(201).send(dateLocal); // 如果 body 有 name ，把值回傳
-      }).catch(error => res.status(400).send(error));
-
+      Todo.create(list)
+        .then(todos => {
+          res.redirect('/');
+          // res.status(201).send(dateLocal); // 如果 body 有 name ，把值回傳
+        }).catch(error => res.status(400).send(error));
+    
   },
   delete: function (req, res) {
 
@@ -32,7 +32,9 @@ let todoController = {
     Todo.find(id)
       .then(todos => {
         todos.destroy()
-          .then(() => {res.redirect('/');})
+          .then(() => {
+            res.redirect('/');
+          })
           .catch(error => res.status(400).send(error));
       }).catch(error => res.status(400).send(error));
   }

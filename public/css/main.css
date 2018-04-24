@@ -185,3 +185,7 @@ ul {
   background-color: #73B2BD;
   color: #F5F3F4;
 }
+
+.btn-delete {
+  cursor: pointer;
+}
