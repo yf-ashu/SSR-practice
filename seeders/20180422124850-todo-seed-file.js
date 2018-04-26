@@ -13,7 +13,6 @@ module.exports = {
       }], {});
     */
    return queryInterface.bulkInsert('Todos', [{
-    
     title: '測試 B',
     date: new Date(),
     createdAt : new Date(),
