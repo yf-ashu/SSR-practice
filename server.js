@@ -1,24 +1,29 @@
 var express = require('express');
-var app = express();
-
+var passport = require('passport');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session=require('express-session');
 var db = require('./models');
 
-var bodyParser = require('body-parser');
-app.use('/public', express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
-app.use(require('express-session')({
-  secret: 'keyboard cat',
-  resave: true,
-  saveUninitialized: true
-}));
 
-app.use(passport.initialize())
-app.use(passport.session())
+var app = express();
+
+app.use('/public', express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(cookieParser());
+app.use(session
+  ({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.set('view engine', 'ejs');
-app.listen(3000, function () {
+app.listen(3000, function() {
   db.sequelize.sync();
 });
 
