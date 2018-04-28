@@ -11,17 +11,21 @@ module.exports = function (passport) {
     function (req, username, password, done) {
 
       var generateHash = function (password) {
-        return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+        const saltRounds = 10;
+       var hash=bCrypt.hashSync(password, bCrypt.genSaltSync(saltRounds));
+        return hash;
 
       };
       User.findOne({
         where: {
           name: username
         }
-      }).then((user)=> {
+      }).then((user) => {
 
         if (user) {
-          return done(null, false, res.send('User already exists'));
+          return done(null, false, {
+            message: 'error'
+          });
 
         } else
 
@@ -30,7 +34,6 @@ module.exports = function (passport) {
           var data = {
             name: username,
             password: userPassword,
-
           };
 
 
@@ -55,17 +58,67 @@ module.exports = function (passport) {
       }).catch(error => console.log(error));
     }
   ));
+  passport.use('login', new LocalStrategy(
+    {
+      passReqToCallback: true 
+    },
+    function (req, username, password, done) {
+      var isValidPassword = function ( password,check) {
+
+        return bCrypt.compareSync(password,check);
+      }
+
+      User.findOne({
+        where: {
+          name: username
+        }
+      }).then(function (user) {
+
+        if (!user) {
+          return done(null, false, {
+            message: 'error'
+          });
+        }
+        if (!isValidPassword(password,user.password)) {
+
+          return done(null, false, {
+            message: 'Incorrect password.'
+          });
+
+        }
+
+
+        var userinfo = user.get();
+        return done(null, userinfo);
+
+
+      }).catch(function (err) {
+
+        console.log("Error:", err);
+
+        return done(null, false, {
+          message: 'Something went wrong with your Signin'
+        });
+
+      });
+
+    }
+
+  ));
+
 
   passport.serializeUser(function (user, done) {
     done(null, user.id);
   });
 
-  passport.deserializeUser(function (id, done) {
-    User.findById(id).then(function (user) {
+  passport.deserializeUser((id, done) => {
+    User.findById(id).then((user) => {
       done(null, user);
     }).catch(function (e) {
       done(e, false);
     });
   });
+
+
 
 }

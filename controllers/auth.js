@@ -13,8 +13,14 @@ let userController = {
     require('../controllers/passport.js')(passport);
     res.render('signup');
   },
-  login: function (req, res) {
-
+  signin: function (req, res) {
+    require('../controllers/passport.js')(passport);
+    res.render('login');
+  },
+  logout: function (req, res) {
+    req.session.destroy(function (err) {
+      res.redirect('/signin');
+    });
   }
 
 

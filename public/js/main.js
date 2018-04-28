@@ -20,5 +20,5 @@ window.onload = function () {
     btn.addEventListener('click', checkNull, false);
 }
 const item = document.querySelectorAll('.btn-delete');
-const btn = document.querySelector('.insert');
+const btn = document.querySelector('.btn');
 
