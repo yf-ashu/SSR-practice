@@ -2,10 +2,9 @@ const taskController = require('../controllers/taskController.js');
 const todoController = require('../controllers/todoController.js');
 
 module.exports = function (app) {
-
-  app.get('/tasks', taskController.index);
-  app.get('/', todoController.index);
-  app.get('/api/tasks', taskController.indexApi);
-  app.post('/',todoController.post);
+  app.post('/', passport.login);
+  app.post('/regist',passport.login);
+  app.get('/task', todoController.index);
   app.get('/:id', todoController.delete);
+  app.post('/task', todoController.post);
 };

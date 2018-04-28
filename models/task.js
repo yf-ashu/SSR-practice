@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Task = sequelize.define('Task', {
+  var Task = sequelize.define('Task', {//這裡的define因為controller裡面需要db.Task
     title: DataTypes.STRING,
   }, {
     classMethods: {
