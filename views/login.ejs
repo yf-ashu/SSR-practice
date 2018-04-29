@@ -10,22 +10,19 @@
         <a class="wrapper">
             <header class="header">
                 <h2>Login</h2>
+                <p class="userName"><%= message %></p>
             </header>
-            <section class="main">
+            <section class="main login">
 
                 <div class="form">
                     <form class="inner login" name="form" method="POST" action="/signin">
-                        <input class="input" name="username" placeholder="待辦事項" />
-                        <input class="input" name="password" placeholder="待辦事項" />
+                        <input class="input" name="username" placeholder="帳號" />
+                        <input class="input" name="password" type="password" placeholder="密碼" />
                         <div class="btns">
                             <div class="btn login signup">註冊</div>
                             <!-- <a href="/signup" class="btn login">刪除 -->
                             <input class="btn login action" type="submit" value="登入">
-
                         </div>
-
-
-
                     </form>
                 </div>
 

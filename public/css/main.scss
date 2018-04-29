@@ -141,6 +141,12 @@ ul {
     background: -webkit-linear-gradient(top, rgba(136, 193, 203, 1) 0%, rgba(179, 213, 219, 0.91) 88%, rgba(196, 214, 216, 0.9) 99%, rgba(197, 214, 216, 0.9) 100%);
     border-radius: 10px;
     box-shadow: 0 3px 30px rgba(0, 0, 0, 0.3);
+    &.signup {
+        background: rgb(105, 146, 223);
+    }
+    &.login{
+        background: rgb(129, 207, 231);
+    }
 }
 
 .display {
@@ -237,15 +243,17 @@ ul {
                     padding: 8px;
                 }
                 &:nth-child(even) {
-                    color: #cc2581;
+                    color:rgb(129, 207, 231);
                 }
                 &.login {
                     border-radius: 10%;
                     @include size(60px,
                     30px);
-                    font-size: 0.7rem;
-                    margin: 0px;
-                    // color: $color-primary;
+                    font-size: 0.8rem;
+                    margin: 0px; // color: $color-primary;
+                }
+                &:hover{
+                    color: $color-primary;
                 }
             }
         }

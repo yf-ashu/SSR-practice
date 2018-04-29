@@ -24,7 +24,7 @@ module.exports = (passport)=> {//從auth那邊呼叫的，在載入get頁面時�
           .then(user => {
             if (user) {
               return done(null, false, {
-                message: 'error'
+                message: '用戶已存在'
               });
             } else {
               var userPassword = generateHash(password);
@@ -35,7 +35,9 @@ module.exports = (passport)=> {//從auth那邊呼叫的，在載入get頁面時�
 
               User.create(data).then(newUser=> {//在db裡面新增資料
                 if (!newUser) {
-                  return done(null, false);//done的第二個設為false會當作不回傳值
+                  return done(null, false,{
+                message: '資料輸入不完整'
+              });//done的第二個設為false會當作不回傳值
                 }
                 if (newUser) {
                   return done(null, newUser);
@@ -66,12 +68,12 @@ module.exports = (passport)=> {//從auth那邊呼叫的，在載入get頁面時�
           .then(user=> {//find找到資料後回傳到user
             if (!user) {
               return done(null, false, {
-                message: 'error'
+                message: '沒有此使用者'
               });
             }
             if (!isValid(password, user.password)) {//前面是使用者輸入的密碼，同function設的password，後面是比對資料庫的密碼
               return done(null, false, {
-                message: 'Incorrect password.'
+                message: '密碼錯誤'
               });
             }
             return done(null, user);//都沒有錯誤最後要記得回傳一個東西(使用者)

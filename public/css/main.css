@@ -126,6 +126,14 @@ ul {
   box-shadow: 0 3px 30px rgba(0, 0, 0, 0.3);
 }
 
+.main.signup {
+  background: #6992df;
+}
+
+.main.login {
+  background: #81cfe7;
+}
+
 .display {
   display: flex;
   align-items: center;
@@ -243,15 +251,19 @@ ul {
 }
 
 .form .inner .btns .btn:nth-child(even) {
-  color: #cc2581;
+  color: #81cfe7;
 }
 
 .form .inner .btns .btn.login {
   border-radius: 10%;
   width: 60px;
   height: 30px;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   margin: 0px;
+}
+
+.form .inner .btns .btn:hover {
+  color: #f5f5f5;
 }
 
 .btn-delete {
