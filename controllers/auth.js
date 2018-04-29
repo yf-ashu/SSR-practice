@@ -18,7 +18,7 @@ let userController = {
   },
   logout: function(req, res) {
     req.session.destroy(function(err) {
-      res.redirect('/signin');
+      res.redirect('/task');
     });
   }
 };

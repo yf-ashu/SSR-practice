@@ -12,8 +12,12 @@
                 <h2>Todo List</h2>
 
                 <div class="content">
-                    <p class="userName"><%= user %></p>
-                    <a class="logStatus" href="/logout">登出</a>
+                    <p class="userName">
+                        <%= user %>
+                    </p>
+                    <a class="logStatus" href=" <%= link %>">
+                        <%= status %>
+                    </a>
 
                 </div>
 
@@ -21,12 +25,22 @@
             <section class="main">
                 <div class="display">
                     <ul class="list">
-                        <% todos.forEach(function(todo) { %>
+                        <% todos.forEach(function(todo) {%>
                             <li class="list--item">
-                                <p><%= todo.id %></p>
-                                <p><%= todo.title %></p>
-                                <div class="btn-delete" data-id="<%= todo.id %>">刪除</div>
-
+                                <p>
+                                    <%= todo.id %>
+                                </p>
+                                <p>
+                                    <input class="input item" name="display" disabled="disabled" placeholder="<%= todo.title %>" />
+                                </p>
+                                <div class="btns">
+                                    <div class="btn-update" data-id="<%= todo.id %>" data-num="">
+                                        <%= todo.dataValues.update %>
+                                    </div>
+                                    <div class="btn-delete" data-id="<%= todo.id %>">
+                                        <%= todo.dataValues.delete %>
+                                    </div>
+                                </div>
                             </li>
                             <% }); %>
                     </ul>

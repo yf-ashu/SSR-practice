@@ -81,6 +81,32 @@ ul {
     padding: 0;
 }
 
+input {
+    &:not([type="submit"]) {
+        padding: 12px 16px;
+        padding-top: 14px;
+        display: inline-block;
+        border: 0px solid lighten($color-bg, 20);
+        background-color: lighten($color-white, 20);
+        border-radius: 4px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        width: 100%;
+        font-size: 0.8rem;
+        border: $color-white 1px solid;
+        transition: 0.5s;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    &:focus {
+        outline: 0;
+        border: $color-secondary 1px solid;
+    }
+    &::-webkit-input-placeholder {
+        color: lighten($color-bg, 30);
+        font-size: 0.8rem;
+    }
+}
+
 .btn {
     display: inline-block;
     text-align: center;
@@ -144,7 +170,7 @@ ul {
     &.signup {
         background: rgb(105, 146, 223);
     }
-    &.login{
+    &.login {
         background: rgb(129, 207, 231);
     }
 }
@@ -166,6 +192,14 @@ ul {
             border-radius: 5px;
             p {
                 display: inline-block;
+                input {
+                    background-color: $color-white;
+                    box-shadow: none;
+                    &::-webkit-input-placeholder {
+                        color: #7a8b99;
+                        font-size: 1rem;
+                    }
+                }
             }
         }
     }
@@ -189,30 +223,6 @@ ul {
         @include size(100%,
         100%);
         padding: 48px;
-        input {
-            &:not([type="submit"]) {
-                padding: 12px 16px;
-                display: inline-block;
-                border: 0px solid lighten($color-bg, 20);
-                background-color: lighten($color-white, 20);
-                border-radius: 4px;
-                vertical-align: middle;
-                box-sizing: border-box;
-                width: 100%;
-                font-size: 0.8rem;
-                border: $color-white 1px solid;
-                transition: 0.5s;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-            &:focus {
-                outline: 0;
-                border: $color-secondary 1px solid;
-            }
-            &::-webkit-input-placeholder {
-                color: lighten($color-bg, 30);
-                font-size: 0.8rem;
-            }
-        }
         .btn {
             margin-left: 24px;
             margin-right: 3px;
@@ -243,7 +253,7 @@ ul {
                     padding: 8px;
                 }
                 &:nth-child(even) {
-                    color:rgb(129, 207, 231);
+                    color: rgb(129, 207, 231);
                 }
                 &.login {
                     border-radius: 10%;
@@ -252,7 +262,7 @@ ul {
                     font-size: 0.8rem;
                     margin: 0px; // color: $color-primary;
                 }
-                &:hover{
+                &:hover {
                     color: $color-primary;
                 }
             }
@@ -261,6 +271,13 @@ ul {
 }
 
 .btn-delete {
+    cursor: pointer;
+    &:hover {
+        color: rgb(233, 94, 94);
+    }
+}
+
+.btn-update {
     cursor: pointer;
     &:hover {
         color: $color-secondary;
