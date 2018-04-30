@@ -31,22 +31,22 @@
                                     <%= todo.id %>
                                 </p>
                                 <p>
-                                    <input class="input item" name="display" disabled="disabled" placeholder="<%= todo.title %>" />
+                                    <form class="inner" id="formUpdate" method="POST" action="/task/update/<%= todo.id %>">
+                                        <input class="item" name="display" disabled="disabled" placeholder="<%= todo.title %>" />
+                                    </form>
                                 </p>
                                 <div class="btns">
-                                    <div class="btn-update" data-id="<%= todo.id %>" data-num="">
-                                        <%= todo.dataValues.update %>
-                                    </div>
-                                    <div class="btn-delete" data-id="<%= todo.id %>">
-                                        <%= todo.dataValues.delete %>
-                                    </div>
+                                    <div class="btnUpdate" data-id="<%= todo.id %>" data-num="">
+                                        修改 </div>
+                                    <div class="btnDelete" data-id="<%= todo.id %>"data-num="">
+                                        刪除 </div>
                                 </div>
                             </li>
                             <% }); %>
                     </ul>
                 </div>
                 <div class="form">
-                    <form class="inner" name="form" method="POST" action="/task">
+                    <form class="inner" id="form" method="POST" action="/task">
                         <input class="input" name="title" placeholder="待辦事項" />
                         <input class="btn action" type="submit" value="+">
                     </form>

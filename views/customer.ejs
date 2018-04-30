@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<% include head %>
+
+
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <h2>Todo List</h2>
+
+                <div class="content">
+                    <p class="userName">
+                        <%= user %>
+                    </p>
+                    <a class="logStatus" href="/signin">登入
+                    </a>
+
+                </div>
+
+            </header>
+            <section class="main">
+                <div class="display">
+                    <ul class="list">
+                        <% todos.forEach(function(todo) {%>
+                            <li class="list--item">
+                                <p>
+                                    <%= todo.id %>
+                                </p>
+                                <p>
+                                    <input class="input item" name="display" disabled="disabled" placeholder="<%= todo.title %>" />
+                                </p>
+                         
+                            </li>
+                            <% }); %>
+                    </ul>
+                </div>
+
+            </section>
+
+            <footer>
+            </footer>
+
+        </div>
+        <script src="/public/js/main.js"></script>
+    </body>

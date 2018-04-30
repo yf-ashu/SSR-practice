@@ -1,16 +1,11 @@
 const db = require('../models');
 const Todo = db.Todo;
-const User = db.User;
 
 let todoController = {
-  index: function (req, res) {
+  index: function(req, res) {
     console.log(req.session.passport);
-    Todo.findAll().then(function (todos) {
+    Todo.findAll().then(function(todos) {
       if (!req.session.passport) {
-        todos.forEach(function (todo) {
-          todo.dataValues.update = '';
-          todo.dataValues.delete = '';
-        });
         res.render('index', {
           todos: todos,
           user: '', //user後面就是你的資料庫，你設成name他就是name
@@ -18,10 +13,6 @@ let todoController = {
           link: '/signin'
         });
       } else {
-        todos.forEach(function (todo) {
-          todo.dataValues.update = '修改';
-          todo.dataValues.delete = '刪除';
-        });
         res.render('index', {
           todos: todos,
           user: req.user.name,
@@ -31,11 +22,20 @@ let todoController = {
       }
     });
   },
-  post: function (req, res) {
+  customer: function(req, res) {
+    Todo.findAll().then(function(todos) {
+      res.render('customer', {
+        todos: todos,
+        user: '訪客' //user後面就是你的資料庫，你設成name他就是name
+      });
+    });
+  },
+  post: function(req, res) {
     const list = {
       title: req.body.title,
       date: new Date()
     };
+
     Todo.create(list)
       .then(todos => {
         res.status(201).redirect('/task');
@@ -43,7 +43,7 @@ let todoController = {
       })
       .catch(error => res.status(400).send(error));
   },
-  delete: function (req, res) {
+  delete: function(req, res) {
     const id = {
       where: {
         id: req.params.id
@@ -51,23 +51,29 @@ let todoController = {
     };
     Todo.find(id)
       .then(todos => {
-        console.log(todos);
+        // console.log(todos);
         todos.destroy().then(() => {
           res.redirect('/task');
         });
       })
       .catch(error => res.status(400).send(error));
   },
-  update: function (req, res) {
+  update: function(req, res) {
     const id = {
       where: {
         id: req.params.id
       }
     };
-    Todo.findOne(id)
+    const updateValues = {
+      title: req.body.display
+    };
+    Todo.findById(req.params.id)
       .then(todos => {
-
-      }).catch(error => res.status(400).send(error));
+        todos.update(updateValues).then(finish => {
+          res.redirect('/task');
+        });
+      })
+      .catch(error => res.status(400).send(error));
   }
 };
 module.exports = todoController;

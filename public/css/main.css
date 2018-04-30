@@ -277,19 +277,19 @@ input::-webkit-input-placeholder {
   color: #f5f5f5;
 }
 
-.btn-delete {
+.btnDelete {
   cursor: pointer;
 }
 
-.btn-delete:hover {
+.btnDelete:hover {
   color: #e95e5e;
 }
 
-.btn-update {
+.btnUpdate {
   cursor: pointer;
 }
 
-.btn-update:hover {
+.btnUpdate:hover {
   color: #9ac2c7;
 }
 /*# sourceMappingURL=main.css.map */

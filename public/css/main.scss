@@ -270,14 +270,14 @@ input {
     }
 }
 
-.btn-delete {
+.btnDelete {
     cursor: pointer;
     &:hover {
         color: rgb(233, 94, 94);
     }
 }
 
-.btn-update {
+.btnUpdate {
     cursor: pointer;
     &:hover {
         color: $color-secondary;
