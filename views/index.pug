@@ -1,0 +1,18 @@
+doctype html  
+html(lang='en')  
+  include head.pug
+  body
+    div.wrapper
+      header.header
+        h2 Todo List
+      section.main
+        div.display
+          ul.list
+            each todo in todos
+                li.list--item
+                  p=todo.id
+                  p=todo.title
+        div.form 
+          form.inner(name="form",method="POST",action="/task")
+            input.input(name="title",placeholder="待辦事項")
+            input.btn(type="submit",value="+")

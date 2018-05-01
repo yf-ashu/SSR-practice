@@ -6,7 +6,7 @@ var db = require('./models');
 var bodyParser = require('body-parser');
 app.use('/public', express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.set('view engine','ejs');
+app.set('view engine','pug');
 app.listen(3000, function() {
   db.sequelize.sync();
 });
