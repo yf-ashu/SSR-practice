@@ -35,10 +35,10 @@ module.exports = function(app) {
     })(req, res, next);
   });
   app.get('/logout', auth.logout);
-  app.get('/task',isLoggedIn, todoController.index);
+  app.get('/task', isLoggedIn, todoController.index);
   app.get('/task/:id', todoController.delete); //id要跟控制器裡面的一樣
   app.post('/task/update/:id', todoController.update);
-  app.post('/task',  todoController.post);
+  app.post('/task', todoController.post);
 
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
