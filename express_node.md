@@ -8,7 +8,7 @@ express 是基於 Node.js 的一種網頁開發框架，可以快速搭建一個
 $ npm install express --save
 ```
 
-快速建立express範例架構
+快速建立express範例架構
 ```
 $ npm install express-generator 
 $ express myapp
@@ -78,7 +78,7 @@ app.listen(3000, function () {//告訴server你會在port 3000來執行
 ```
 
 ### Routing 路由
-server端根據路由設定來回應client的請求
+server端根據路由設定來回應client的請求
 ```
 app.METHOD(PATH, HANDLER)
 ```
@@ -97,13 +97,13 @@ app.get('/', function (req, res) {
 在res.方法(參數)裡
 1. req.body.名稱:用在POST方法時
 例如：給值name:123，那req.body.name就會等於123
-2. req.params.名稱:用在get方法，對應路由的冒號後面
+2. req.params.名稱:用在get方法，對應路由的冒號後面
 例如：路由設定/user/:name，實際網址列：/user/toy，req.params.name就會是toy
 3. req.query.名稱，用在get方法，對應路由的問號
 例如：路由設定：/about，實際網址列：/about?name=tom&nickname=tommy，req.query.name就會是tom
 #### 其他回應方式
 1. res.json():回傳json格式的物件
-2. res.render('你的網頁',執行函數或callback)，
+2. res.render('你的網頁',執行函數或callback)，
 res.render('login', { message: info.message });
 
 ### Middleware
@@ -137,5 +137,5 @@ app.use('/hello', express.static(__dirname + '/public/image'));
 
 
 ### 參考資料
-1. [Express官網](https://hellolynn.hpd.io/2017/08/11/node-js-express-%E5%88%9D%E5%85%A5%E9%96%80-%E4%B8%8A%E9%9B%86/)
+1. [Express官網](https://hellolynn.hpd.io/2017/08/11/node-js-express-%E5%88%9D%E5%85%A5%E9%96%80-%E4%B8%8A%E9%9B%86/)
 2. [Express入門](https://hellolynn.hpd.io/2017/08/11/node-js-express-%E5%88%9D%E5%85%A5%E9%96%80-%E4%B8%8A%E9%9B%86/)
