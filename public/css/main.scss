@@ -190,17 +190,6 @@ input {
             margin: 16px;
             padding: 10px 16px;
             border-radius: 5px;
-            p {
-                display: inline-block;
-                input {
-                    background-color: $color-white;
-                    box-shadow: none;
-                    &::-webkit-input-placeholder {
-                        color: #7a8b99;
-                        font-size: 1rem;
-                    }
-                }
-            }
         }
     }
 }
@@ -281,5 +270,26 @@ input {
     cursor: pointer;
     &:hover {
         color: $color-secondary;
+    }
+}
+
+button {
+    background-color: none;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    padding: 0 16px;
+    margin-top: 16px;
+}
+
+form {
+    input {
+        &.item--inner {
+            background-color:$color-white;
+            font-size: 16px;
+            box-shadow:none;
+        }
     }
 }

@@ -32,13 +32,13 @@
                                 </p>
                                 <p>
                                     <form class="inner" id="formUpdate" method="POST" action="/task/update/<%= todo.id %>">
-                                        <input class="item" name="display" disabled="disabled" placeholder="<%= todo.title %>" />
+                                        <input class="item--inner" name="display" disabled="disabled" value="<%= todo.title %>"placeholder="<%= todo.title %>" />
                                     </form>
                                 </p>
                                 <div class="btns">
-                                    <button class="btnUpdate" data-id="<%= todo.id %>" data-num="" type="button">
+                                    <button class="btnUpdate" data-id="<%= todo.id %>" data-num="" type="button" >
                                         修改 </button>
-                                    <button class="btnDelete" data-id="<%= todo.id %>" data-num="" type="button">
+                                    <button class="btnDelete" data-id="<%= todo.id %>" data-num="" type="button" >
                                         刪除</button>
                                 </div>
                             </li>
