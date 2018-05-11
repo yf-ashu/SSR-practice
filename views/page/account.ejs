@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<% include ../head %>
+
+
+    <body>
+        <div class="dashboard">
+            <% include header %>
+                <section class="main">
+                    <ul class="list">
+                        <% data.forEach(function(todo) {%>
+                            <li class="list--item">
+                                <p>
+                                    <%= todo.id %>
+                                </p>
+                                <p>
+                                        <input class="item--inner" name="display" disabled="disabled" value="<%= todo.username %>" placeholder="<%= todo.context %>" />
+                                </p>
+                                <div class="btns">
+
+                                    <!-- <a href="/dashboard/edit?id=<%= todo.id %>">修改</a> -->
+                                    <!-- <button href="/dashboard/edit?id=<%= todo.id %>" class="btnUpdate" data-id="<%= todo.id %>" data-num="" type="button">
+                                        修改 </button>
+                                    <button class="btnDelete" data-id="<%= todo.id %>" data-num="" type="button">
+                                        刪除</button> -->
+                                </div>
+                            </li>
+                            <% }); %>
+                    </ul>
+                </section>
+
+                <footer class="footer">
+                    <p>123</p>
+                </footer>
+
+        </div>
+        <script src="/public/js/main.js"></script>
+    </body>

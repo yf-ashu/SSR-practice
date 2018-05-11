@@ -9,27 +9,12 @@
     <body>
         <div class="wrapper">
             <header class="header">
-<h2>Todo List</h2>
+                <p>
+                    <%= user %>
+                </p>
             </header>
             <section class="main">
-                <div class="display">
-                    <ul class="list">
-                        <% todos.forEach(function(todo) { %>
-                            <li class="list--item">
-                                   <p><%= todo.id %></p> 
-                                   <p><%= todo.title %></p>
-                                <a href='/<%= todo.id %>'>
-                                </a>
-                            </li>
-                            <% }); %>
-                    </ul>
-                </div>
-                <div class="form">
-                    <form class="inner" name="form" method="POST" action="/">
-                        <input class="input" name="title" placeholder="待辦事項" />
-                        <input class="btn" type="submit" value="+">
-                    </form>
-                </div>
+                <div class="navbar"></div>
 
             </section>
 

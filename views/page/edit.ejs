@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<% include ../head %>
+
+
+    <body>
+        <div class="dashboard">
+            <% include header %>
+                <section class="main">
+                    <p>
+                        <%= data.id %>
+                    </p>
+                    <form id="form" method="POST" action="/dashboard/edit">
+                    
+                        <input type="hidden" name="id" id="" value="<%= data.id %>">
+                        <input type="text" name="name" id="" value="<%= data.name %>">
+         <textarea type="text" name="context" id="" cols="30" rows="10" value="<%= data.context %>"><%= data.context %></textarea>
+                        <input value="送出" type="submit">
+                    </form>
+
+
+                </section>
+
+                <footer class="footer">
+                    <p>123</p>
+                </footer>
+
+        </div>
+        <script src="/public/js/main.js"></script>
+    </body>

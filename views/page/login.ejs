@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<% include ../head %>
+
+
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <h2>Login</h2>
+                <p class="userName">
+                    <%= message %>
+                </p>
+            </header>
+            <section class="main">
+                <form class="inner login" name="form" method="POST" action="/login">
+                    <input class="input" name="username" placeholder="帳號" />
+                    <input class="input" name="password" type="password" placeholder="密碼" />
+                    <input class="login" type="submit" value="登入">
+                </form>
+            </section>
+
+            <footer>
+            </footer>
+
+        </div>
+
+    </body>

@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Task = sequelize.define('Task', {
-    title: DataTypes.STRING,
+  var Blog = sequelize.define('Blog', {//這裡的define因為controller裡面需要db.Task
+    name: DataTypes.STRING,
+    context: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
@@ -9,5 +10,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  return Task;
+  return Blog;
 };

@@ -38,22 +38,24 @@ $h) {
     flex-flow: row wrap;
 }
 
-$color-primary:#f5f5f5;
-$color-secondary:rgb(154, 194, 199);
-$color-bg:#7a8b99;
+$color-primary:#3d99f0;
+$color-secondary:rgb(154,
+194,
+199);
+$color-bg:#F5F5F5;
 $color-white:#F5F3F4;
 $block:#73B2BD;
+$dashboardNav:#31363a;
 * {
-    position: relative;
     box-sizing: border-box;
-    color: $color-bg;
+    color: $block;
 }
 
 body,
 html {
     @include size(100%,
     100%);
-    background-color: $color-primary;
+    background-color: $color-bg;
 }
 
 a,
@@ -71,9 +73,11 @@ h5,
 h6,
 p {
     margin: 0;
+    padding: 0;
 }
 
-ul {
+ul,
+li {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -92,105 +96,51 @@ ul {
     -webkit-user-drag: none;
     transition: all .5s;
 }
-.header{
-    
-        display: inline-block;
-        margin-bottom: 8px;
-    
-}
+
 /*-------------------------*/
 
 /* $main
 ---------------------------*/
 
-.wrapper {
-    @include flexCenter();
-    min-height: 100vh;
-}
-
-.main {
-    @include flexCenter();
-    @include size(30%,
-    70%);
-    min-width: 500px;
-    margin: 0 auto;
-    background: -webkit-linear-gradient(top, rgba(136, 193, 203, 1) 0%, rgba(179, 213, 219, 0.91) 88%, rgba(196, 214, 216, 0.9) 99%, rgba(197, 214, 216, 0.9) 100%);
-    border-radius: 10px;
-    box-shadow: 0 3px 30px rgba(0, 0, 0, 0.3);
-}
-
-.display {
-    @include flexCenter();
+.dashboard {
     @include size(100%,
     100%);
-    margin-bottom: 16px;
-    .list {
-        @include size(100%,
-        100%);
-        padding: 32px;
-        .list--item {
-            @include flexLeft();
-            background-color: $color-white;
-            margin: 16px;
-            padding: 10px 16px;
-            border-radius: 5px;
-            p {
-                display: inline-block;
+    display: grid;
+    grid-template-rows: 20% auto 5%;
+    grid-template-columns: 20% auto 5%;
+    grid-template-areas: "a b b" "a b b" "a c c";
+    .header {
+        grid-area: a;
+        background-color: $dashboardNav;
+        outline: #31363a 1px solid;
+        @include flexCenter();
+        justify-content: flex-start;
+
+        ul {
+            cursor: pointer;
+            padding: 8px;
+            .item {
+                // display: none;
+                padding-left: 8px;
+                li{
+                    margin: 8px;
+                }
+            }
+            .item--open{
+                @include flexCenter();
             }
         }
     }
-}
-
-.form {
-    @include size(100%,
-    100%);
-    @include flexCenter();
-    .inner {
-        @include flexCenter();    flex-flow: row nowrap;
-        @include size(100%,
-        
-        100%);
-        padding: 48px;
-        input {
-            &:not([type="submit"]) {
-                padding: 12px 16px;
-                display: inline-block;
-                border: 0px solid lighten($color-bg, 20);
-                background-color: lighten($color-white, 20);
-                border-radius: 4px;
-                vertical-align: middle;
-                box-sizing: border-box;
-                width: 100%;
-                font-size: 0.8rem;
-                border: $color-white 1px solid;
-                transition: 0.5s;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-
-            }
-           &:focus {
-                outline: 0;
-                border: $color-secondary 1px solid;
-            }
-            &::-webkit-input-placeholder {
-                color: lighten($color-bg, 30);
-                font-size: 0.8rem;
-            }
-        }
-        .btn {
-            margin-left: 24px;
-            margin-right: 3px;
-            border-radius: 50%;
-            @include size(60px,
-            50px);
-            font-size: 25px;
-            color: lighten($block,20);
-            border: 0px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            &:hover{
-                background-color: $block;
-                color: $color-white;
-            }
-        }
+    .main {
+        grid-area: b;
+        // background-color: $color-primary;
+        outline: #31363a 1px solid;
+        border: #31363a 1px solid;
+        color: #31363a;
+    }
+    .footer {
+        grid-area: c;
+        background-color: #73B2BD;
+        outline: #31363a 1px solid;
     }
 }
-
