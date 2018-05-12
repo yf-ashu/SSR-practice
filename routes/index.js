@@ -8,20 +8,22 @@ module.exports = function (app) {
   app.get('/article/posts/:id', blogController.listPost);
   app.get('/api/posts', blogController.indexApi);
 
-  //後台
+  //後台首頁
   app.get('/dashboard', blogController.dashboard);
   //文章
-  app.get('/dashboard/post', blogController.postnew);
-  app.post('/dashboard/article/post', blogController.post);
-  app.get('/dashboard/article', blogController.all);
+  app.get('/dashboard/post', blogController.articleAdd);
+  app.get('/dashboard/article', blogController.articleAll);
   app.get('/dashboard/edit', blogController.edit);
+
+  app.post('/dashboard/article/post', blogController.post);
   app.post('/dashboard/edit', blogController.update);
 
-  app.get('/dashboard/account',isLoggedIn, userdataController.accountShow);
-  app.get('/dashboard/signup',isLoggedIn, userdataController.signup);
-  app.get('/dashboard/logout', userdataController.logout);
+  app.get('/dashboard/article/post', blogController.delete); //id要跟控制器裡面的一樣
 
-  //
+  //帳號管理
+  app.get('/dashboard/account', userdataController.accountShow);
+  app.get('/dashboard/signup', userdataController.signup);
+  app.get('/dashboard/logout', userdataController.logout);
   app.post('/dashboard/signup', function (req, res, next) {
     passport.authenticate('signup', function (err, user, info) {
       if (err) {

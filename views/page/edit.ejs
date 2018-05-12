@@ -10,23 +10,21 @@
         <div class="dashboard">
             <% include header %>
                 <section class="main">
-                    <p>
-                        <%= data.id %>
-                    </p>
+                  
                     <form id="form" method="POST" action="/dashboard/edit">
-                    
+                    <label for="name">文章名稱</label>
                         <input type="hidden" name="id" id="" value="<%= data.id %>">
-                        <input type="text" name="name" id="" value="<%= data.name %>">
-         <textarea type="text" name="context" id="" cols="30" rows="10" value="<%= data.context %>"><%= data.context %></textarea>
-                        <input value="送出" type="submit">
+                        <input type="text" name="name" id="name" value="<%= data.name %>">
+                        <label for="name">文章內容</label>
+                        <textarea type="text" name="context" id="" cols="30" rows="10" value="<%= data.context %>"><%= data.context %></textarea>
+                        <input class="btn" value="送出" type="submit">
                     </form>
 
 
                 </section>
 
-                <footer class="footer">
-                    <p>123</p>
-                </footer>
+                <% include ../footer %>
+
 
         </div>
         <script src="/public/js/main.js"></script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<% include ../head %>
+
+
+    <body>
+        <div class="dashboard">
+            <% include header %>
+                <section class="main">
+                    <ul class="list">
+                        <% data.forEach(function(todo) {%>
+                            <li class="list--item">
+                               
+                                    <label for="">文章名稱</label>
+                                    <label for=""><%= todo.name %></label>
+
+                                
+                                    <a href="/dashboard/edit?id=<%= todo.id %>">修改</a>
+                                    <a href="/dashboard/article/post?id=<%= todo.id %>">刪除</a>
+
+                            </li>
+                            <% }); %>
+                    </ul>
+                </section>
+                <% include ../footer %>
+
+        </div>
+        <script src="/public/js/main.js"></script>
+    </body>

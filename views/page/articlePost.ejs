@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<% include ../head %>
+
+
+    <body>
+        <div class="dashboard">
+            <% include header %>
+                <section class="main">
+                    <form method="POST" action="/dashboard/article/post">
+                        <label for="text">文章名稱</label>
+                        <input id="text" type="text" name="name" id="">
+                        <label for="textarea">文章內文</label>
+                        <textarea id="textarea" name="textarea" id="" cols="30" rows="10"></textarea>
+                        <input class="btn" type="submit" value="發布">
+                    </form>
+                </section>
+
+                <% include ../footer %>
+
+        </div>
+        <script src="/public/js/main.js"></script>
+    </body>

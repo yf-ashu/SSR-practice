@@ -12,20 +12,24 @@ let userdataController = {
       });
   },
   signup: function (req, res) {
-    console.log('帳號：' + req.user.username);
-    if (req.user.username !== 'admin') {
+    // console.log('帳號：' + req.user.username);
+    if (!req.session.passport) {
       return res.redirect('../dashboard');
     } else {
-      require('../controllers/passport.js')(passport);
-      res.render('page/signup', {
-        message: ''
-      });
+      if (req.user.username !== 'admin') {
+        return res.redirect('../dashboard');
+      } else {
+        require('../controllers/passport.js')(passport);
+        res.render('page/signup', {
+          message: ''
+        });
+      }
     }
   },
   accountShow: function (req, res) {
     UserData.findAll()
       .then(function (data) {
-        res.render('page/account', {
+        res.render('page/accountShow', {
           data: data
         });
       });

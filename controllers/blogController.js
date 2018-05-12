@@ -33,7 +33,7 @@ let blogdataController = {
         });
       });
   },
-  //發表文章
+  //post發表文章
   post: function (req, res) {
     const list = {
       name: req.body.name,
@@ -44,20 +44,20 @@ let blogdataController = {
         res.redirect('/dashboard/article');
       }).catch(error => res.status(400).send(error));
   },
-  //顯示發表文章
-  postnew: function (req, res) {
+  //發表文章的輸入頁面
+  articleAdd: function (req, res) {
     Blog.findAll()
       .then(function (data) {
-        res.render('page/post', {
-          user: 'req.user.username',
+        res.render('page/articlePost', {
+          data: data
         });
       });
   },
-  //顯示所有文章
-  all: function (req, res) {
+  //顯示所有文章＆可以修改刪除文章
+  articleAll: function (req, res) {
     Blog.findAll()
       .then(function (data) {
-        res.render('page/article', {
+        res.render('page/articleShow', {
           data: data
         });
       });
@@ -77,6 +77,7 @@ let blogdataController = {
         });
       });
   },
+  //更新文章
   update: function (req, res) {
     const id = {
       where: {
@@ -91,6 +92,20 @@ let blogdataController = {
       .then(data => {
         console.log(updateValues)
         data.update(updateValues).then(finish => {
+          res.redirect('/dashboard/article');
+        });
+      })
+      .catch(error => res.status(400).send(error));
+  },delete: function(req, res) {
+    const id = {
+      where: {
+        id: req.query.id
+      }
+    };
+    Blog.find(id)
+      .then(user => {
+        // console.log(todos);
+        user.destroy().then(() => {
           res.redirect('/dashboard/article');
         });
       })
