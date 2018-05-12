@@ -2,7 +2,6 @@ const ul = document.querySelectorAll('.header ul');
 
 window.onload = function () {
   console.log(ul[0]);
-
   ul.forEach((input, index) => {
     let title=input.querySelector('p');
     input.addEventListener('click', btnUl, false);
