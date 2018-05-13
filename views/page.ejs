@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<% include head %>
+
+
+    <body>
+        <div class="wrapper">
+            <% include header %>
+
+                <section class="main page">
+                        <div class="context">
+                            <div class="image">
+                                <img src="/public/image/image.png" alt="">
+                            </div>
+                            <div class="text">
+                                <h2>
+                                    <%= data.name %>
+                                </h2>
+                                <p>
+                                    <%= data.time %>
+                                </p>
+                                <p>
+                                    <%= data.context %>
+                                </p>
+                            </div>
+                        </div>
+
+
+
+                </section>
+
+
+        </div>
+        <script src="/public/js/index.js"></script>
+    </body>

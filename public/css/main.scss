@@ -270,8 +270,9 @@ textarea {
     .header {
         grid-area: a;
         background-color: #fff;
-        @include size(100%,
+        @include size(350px,
         100%);
+        position: fixed;
         .navbar {
             @include size(100%,
             100vh);
@@ -316,16 +317,21 @@ textarea {
                     padding: 16px;
                     padding-bottom: 0;
                     margin-bottom: 25px;
-                    img {
+                    .icon {
+                        color: #4e575f;
                         @include size(28px,
                         28px);
                         @include background();
                         border-radius: 50%;
                         border: $color-text--dark solid 1px;
                         margin: 0 8px;
-                        padding: 4px;
-                        opacity: 0.6;
-                        color: #73B2BD;
+                        opacity: 0.6; // background-color: #73B2BD;
+                        padding: 5px;
+                        transition: color 0.5s, background-color 0.5s;
+                        &:hover {
+                            color: $color-white;
+                            background-color: #000;
+                        }
                     }
                 }
                 .about {
@@ -378,13 +384,17 @@ textarea {
             background-color: #fff;
             overflow: hidden;
             transition: box-shadow 0.5s;
-            img {
+            cursor: pointer;
+            .image {
                 @include size(100%,
                 60%);
-                @include background();
-                border: $color-text--dark solid 1px;
-                transition: transform 0.7s;
-
+                text-align: center;
+                img {
+                    @include size(auto,
+                    100%);
+                    @include background();
+                    transition: transform 0.7s;
+                }
             }
             .text {
                 .title {
@@ -403,9 +413,34 @@ textarea {
             &:hover {
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
                 img {
-                   transform: scale(1.1);
+                    transform: scale(1.1);
                 }
             }
+        }
+    }
+}
+
+.page {
+    @include size(100%,
+    100%);
+    @include flexCenter();
+    .image {
+        // text-align: center;
+        padding: 10vh 0;
+        img {
+            @include background();
+            @include size(auto,
+            350px);
+        }
+    }
+    .text {
+        margin: 32px;
+        h2,
+        p {
+            color: #000;
+        }
+        p {
+            padding: 16px 0;
         }
     }
 }

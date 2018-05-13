@@ -14,6 +14,9 @@ module.exports = {
       context: {
         type: Sequelize.STRING
       },
+      time: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

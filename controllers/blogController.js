@@ -20,7 +20,10 @@ let blogdataController = {
     };
     Blog.find(id)
       .then(data => {
-        res.json(data);
+        console.log(data)
+        res.render('page', {
+          data: data,
+        });
       })
       .catch(error => res.status(400).send(error));
   },
@@ -35,9 +38,12 @@ let blogdataController = {
   },
   //post發表文章
   post: function (req, res) {
+    let Today = new Date();　
+    let str = (Today.getFullYear() + " 年 " + (Today.getMonth() + 1) + " 月 " + Today.getDate() + " 日");
     const list = {
       name: req.body.name,
-      context: req.body.textarea
+      context: req.body.textarea,
+      time: str
     };
     Blog.create(list)
       .then(data => {
@@ -85,7 +91,7 @@ let blogdataController = {
       }
     };
     const updateValues = {
-      name:req.body.name,
+      name: req.body.name,
       context: req.body.context
     };
     Blog.findById(req.body.id)
@@ -96,7 +102,8 @@ let blogdataController = {
         });
       })
       .catch(error => res.status(400).send(error));
-  },delete: function(req, res) {
+  },
+  delete: function (req, res) {
     const id = {
       where: {
         id: req.query.id
