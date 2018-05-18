@@ -193,6 +193,7 @@ textarea::-webkit-input-placeholder {
 .dashboard .main form textarea {
   margin: 8px;
   padding: 8px;
+  line-height: 1.5rem;
 }
 
 .dashboard .main form label {
@@ -499,14 +500,13 @@ textarea::-webkit-input-placeholder {
 
 .page .text {
   margin: 32px;
+  margin-bottom: 60px;
+  line-height: 1.5rem;
 }
 
 .page .text h2,
 .page .text p {
   color: #000;
-}
-
-.page .text p {
   padding: 16px 0;
 }
 /*# sourceMappingURL=main.css.map */

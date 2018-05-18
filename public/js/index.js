@@ -1,4 +1,4 @@
-let updateMain = document.querySelector('.main');
+const updateMain = document.querySelector('.main');
 let connect = function () {
     fetch('http://127.0.0.1:3000/api/posts', {
             method: 'get'
@@ -24,7 +24,7 @@ let update = (data) => {
 <a href="/article/posts/${input.id}">
 <div class="post">
 <div class="image">
-    <img src="/public/image/image.png" alt="">
+<img src="/public/upload/${input.upload}" alt="">
     </div>
 
     <div class="text">
@@ -40,10 +40,9 @@ let update = (data) => {
 
     });
      updateMain.innerHTML = str;
-
 }
 window.onload = function () {
-    if (window.location.href == 'http://127.0.0.1:3000/') {
+    if (window.location.pathname.split('/')[1] === '') {
     connect();
     }
 }

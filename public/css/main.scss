@@ -203,6 +203,7 @@ textarea {
             textarea {
                 margin: 8px;
                 padding: 8px;
+                line-height: 1.5rem;
             }
             label {
                 margin-left: 8px;
@@ -435,11 +436,11 @@ textarea {
     }
     .text {
         margin: 32px;
+        margin-bottom: 60px;
+        line-height: 1.5rem;
         h2,
         p {
             color: #000;
-        }
-        p {
             padding: 16px 0;
         }
     }

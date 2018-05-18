@@ -10,15 +10,20 @@
         <div class="dashboard">
             <% include header %>
                 <section class="main">
-                    <form method="POST" action="/dashboard/article/post">
+                    <form method="POST" action="/dashboard/article/post" enctype="multipart/form-data">
                         <label for="text">文章名稱</label>
                         <input id="text" type="text" name="name" id="">
                         <label for="textarea">文章內文</label>
                         <textarea id="textarea" name="textarea" id="" cols="30" rows="10"></textarea>
+                        <input type="file" name="uploading" />
+
                         <input class="btn" type="submit" value="發布">
                     </form>
+                    <!-- <form action="/upload" enctype="multipart/form-data" method="POST"> 
+                        <input type="submit" value="Upload Photo"/>
+                     </form> -->
                 </section>
-
+         
                 <% include ../footer %>
 
         </div>

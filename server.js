@@ -3,8 +3,9 @@ var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var db = require('./models');
 var app = express();
+var db = require('./models');
+
 app.use('/public', express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
