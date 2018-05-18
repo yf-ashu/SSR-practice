@@ -480,6 +480,7 @@ textarea::-webkit-input-placeholder {
 .page {
   width: 100%;
   height: 100%;
+  padding: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -487,6 +488,7 @@ textarea::-webkit-input-placeholder {
 }
 
 .page .image {
+  text-align: center;
   padding: 10vh 0;
 }
 

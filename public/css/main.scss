@@ -424,9 +424,10 @@ textarea {
 .page {
     @include size(100%,
     100%);
+    padding: 16px;
     @include flexCenter();
     .image {
-        // text-align: center;
+        text-align: center;
         padding: 10vh 0;
         img {
             @include background();
@@ -435,6 +436,7 @@ textarea {
         }
     }
     .text {
+        
         margin: 32px;
         margin-bottom: 60px;
         line-height: 1.5rem;

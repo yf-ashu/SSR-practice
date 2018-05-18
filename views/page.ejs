@@ -11,22 +11,23 @@
             <% include header %>
 
                 <section class="main page">
-                        <div class="context">
-                            <div class="image">
-                                <img src="/public/upload/<%- data.upload %>" alt="">
-                            </div>
-                            <div class="text">
-                                <h2>
-                                    <%= data.name %>
-                                </h2>
-                                <p>
-                                    <%= data.time %>
-                                </p>
-                                
-                                    <%- data.context %>
-                                
-                            </div>
+                    <div class="context">
+                        <div class="image">
+                            <img src="/public/upload/<%- data.upload %>" alt="">
                         </div>
+                        <div class="text">
+                            <h2>
+                                <%= data.name %>
+                            </h2>
+                            <p>
+                                <%= data.time %>
+                            </p>
+                            <p>
+                                <%- data.context %>
+                            </p>
+
+                        </div>
+                    </div>
 
 
 
