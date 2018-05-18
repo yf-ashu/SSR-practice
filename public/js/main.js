@@ -18,7 +18,7 @@ function btnDelete() {
   }
 }
 
-function cancel() {
+function cancel(e) {
   let set = this.dataset.num;
   item[set].disabled = true;
   item[set].value = item[set].placeholder;
@@ -40,8 +40,8 @@ function btnUpdate() {
   deleteBtn[set].disabled = false;
   updateBtn[set].disabled = false;
   deleteBtn[set].textContent = '取消';
-
-  deleteBtn[set].addEventListener('click', cancel);
+  cancel(this);
+  // deleteBtn[set].addEventListener('click', cancel);
   updateBtn[set].addEventListener('click', send);
 }
 
@@ -85,11 +85,13 @@ window.onload = function() {
     return input.addEventListener('click', btnUpdate, false);
   });
 
-  if (window.location == 'http://127.0.0.1:3000/task') {
-    action.addEventListener('click', checkNull, false);
+  if (window.location.pathname.split('/')[1] ==='task') {
+    // action.addEventListener('click', checkNull, false);
+    // document.getElementsByClassName("action")[0].onclick = checkNull;
+    document.getElementById('submit').onclick = checkNull;
   }
-
-  if (window.location == 'http://127.0.0.1:3000/signin') {
-    signup.addEventListener('click', signupTo, false);
-  }
+// console.log(window.location.pathname.split('/')[1]);
+  // if (window.location.pathname.split('/')[1] === 'signin') {
+  //   signup.addEventListener('click', signupTo, false);
+  // }
 };

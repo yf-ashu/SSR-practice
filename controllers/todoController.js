@@ -5,6 +5,7 @@ let todoController = {
   index: function(req, res) {
     console.log(req.session.passport);
     Todo.findAll().then(function(todos) {
+      console.log(req.session.passport);
       if (!req.session.passport) {
         res.render('index', {
           todos: todos,
