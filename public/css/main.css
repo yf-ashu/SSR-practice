@@ -182,6 +182,7 @@ textarea::-webkit-input-placeholder {
   flex-flow: column wrap;
   grid-area: b;
   color: #31363a;
+  margin: 16px;
 }
 
 .dashboard .main form {
@@ -245,6 +246,10 @@ textarea::-webkit-input-placeholder {
   align-items: center;
   justify-content: center;
   flex-flow: column wrap;
+}
+
+.login h2 {
+  margin-bottom: 16px;
 }
 
 .login .main {

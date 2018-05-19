@@ -148,6 +148,7 @@ textarea {
         justify-content: flex-start;
         box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
         transition: all .3s;
+     
         .nav {
             @include size(100%,
             auto);
@@ -196,6 +197,7 @@ textarea {
         @include flexCenter();
         grid-area: b; // background-color: $color-primary;
         color: #31363a;
+        margin: 16px;
         form {
             display: flex;
             flex-flow: column wrap;
@@ -245,6 +247,9 @@ textarea {
     @include size(100%,
     100%);
     @include flexCenter();
+    h2{
+        margin-bottom: 16px;
+    }
     .main {
         @include flexCenter();
         @include size(30%,

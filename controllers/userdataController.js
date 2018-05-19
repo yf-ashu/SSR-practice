@@ -25,6 +25,18 @@ let userdataController = {
         });
       }
     }
+  }, signupSubmit: function (req, res, next) {
+    passport.authenticate('signup', function (err, user, info) {
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        return res.render('page/signup', {
+          message: info.message
+        });
+      }
+      return res.redirect('../dashboard/');
+    })(req, res, next);
   },
   accountShow: function (req, res) {
     UserData.findAll()
@@ -39,6 +51,24 @@ let userdataController = {
     res.render('page/login', {
       message: ''
     });
+  },
+  loginSubmit:  function (req, res, next) {
+    passport.authenticate('login', function (err, user, info) {
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        return res.render('page/login', {
+          message: info.message
+        });
+      }
+      req.logIn(user, function (err) {
+        if (err) {
+          return next(err);
+        }
+        return res.redirect('dashboard');
+      });
+    })(req, res, next);
   },
   logout: function (req, res) {
     req.session.destroy(function (err) {

@@ -1,6 +1,5 @@
 const db = require('../models');
 const Blog = db.Blog;
-const passport = require('passport');
 const multer = require('multer');
 
 var storage = multer.diskStorage({
@@ -60,7 +59,6 @@ let blogdataController = {
 
     let uploading = upload.single('uploading');
     uploading(req, res, function (err) {
-      //添加错误处理
       if (err) {
         return console.log(err);
       }
